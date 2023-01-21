@@ -64,6 +64,7 @@ const MediumProgressBar = styled(ProgressBase)`
 
 const LargeProgressBar = styled(ProgressBase)`
   height: 24px;
+  border-radius: 12px;
 
   &::-webkit-progress-bar {
     padding: 4px;
