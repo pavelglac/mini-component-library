@@ -44,6 +44,7 @@ const DropDownIcon = styled(Icon).attrs({ id: 'chevron-down', size: 22})`
   margin: auto;
   color: ${COLORS.gray700};
   transition: all 200ms;
+  pointer-events: none;
 
 `
 
