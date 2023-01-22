@@ -1,0 +1,37 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import SelectJosh from './Select';
+
+<Meta title="SelectJosh" component={SelectJosh} />
+
+# SelectJosh
+
+export const ManagedSelectJosh = () => {
+  const [value, setValue] = React.useState('newest');
+  return (
+    <>
+      <label
+        htmlFor="filter-by"
+        style={{
+          display: 'block',
+          marginBottom: '0.5em',
+        }}
+      >
+        Filter by:
+      </label>
+      <SelectJosh
+        id="filter-by"
+        label="Sort"
+        value={value}
+        onChange={(ev) => setValue(ev.target.value)}
+      >
+        <option value="newest">Newest Releases</option>
+        <option value="price">Price</option>
+        <option value="curated">Curated</option>
+      </SelectJosh>
+    </>
+  );
+};
+
+<Story name="Default">
+  <ManagedSelectJosh />
+</Story>

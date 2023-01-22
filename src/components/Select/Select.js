@@ -23,20 +23,20 @@ const SelectElement = styled.select`
   background-color: ${COLORS.transparentGray15};
   border-radius: 8px;
   position: relative;
-  padding: 12px 48px 12px 12px;
+  padding: 12px 48px 12px 16px;
   color: ${COLORS.gray700};
-  border: 2px solid transparent;
+  border: none;
   transition: all 200ms;
-  outline: none;
+  outline: 2px solid transparent;
   font-size: 1rem;
   line-height: 1;
 
   &:focus {
-    border-color: ${COLORS.primary};
+    outline: 2px solid ${COLORS.primary};
   }
 `
 
-const DropDownIcon = styled(Icon).attrs({ id: 'chevron-down', size: 22, strokeWidth: 2 })`
+const DropDownIcon = styled(Icon).attrs({ id: 'chevron-down', size: 22})`
   position: absolute;
   right: 14px;
   top: 0;
