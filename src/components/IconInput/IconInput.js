@@ -10,13 +10,13 @@ const SIZE = {
   small: {
     iconSize: "1rem",
     fontSize: "0.875rem",
-    padding: "4px 4px 4px 24px",
+    padding: "4px 4px 4px calc(1rem + 4px)",
     borderWidth: "1px",
   },
   large: {
     iconSize: "1.5rem",
     fontSize: "1.125rem",
-    padding: "8px 8px 8px 36px",
+    padding: "8px 8px 8px calc(1.5rem + 8px)",
     borderWidth: "2px",
   },
 };
@@ -26,17 +26,18 @@ const IconInput = ({
   icon = "search",
   width = "100%",
   size,
-  placeholder,
+  type = "text",
+  ...nativeInputProps
 }) => {
   return (
     <Wrapper style={{ '--fontSize': SIZE[size].fontSize, '--width': width, "--padding": SIZE[size].padding, "--borderWidth": SIZE[size].borderWidth }}>
       <VisuallyHidden>
-        <label for="search">{label}</label>
+        {label}
       </VisuallyHidden>
       <IconWrapper>
         <Icon id={icon} size={SIZE[size].iconSize} />
       </IconWrapper>
-      <SearchElement name='search' type="search" placeholder={placeholder} />
+      <SearchElement name={type} type={type} {...nativeInputProps} />
     </Wrapper>
   );
 };
@@ -61,9 +62,10 @@ const SearchElement = styled.input`
 
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled.label`
   position: relative;
   color: ${COLORS.gray500};
+  display: block;
 
   &:hover, &:hover ${SearchElement} {
     color: ${COLORS.black};
@@ -74,7 +76,7 @@ const IconWrapper = styled.span`
   position: absolute;
   top: 0;
   bottom: 0;
-  margin: auto;
+  left: 0;
   pointer-events: none;
   display: flex;
   align-items: center;
